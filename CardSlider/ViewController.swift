@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     /// Data structure for custom cards - in this example, we're using an array of ImageCards
     var cards = [ImageCard]()
 
+    private let maxCardCount = 3
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 28 / 255, green: 39 / 255, blue: 101 / 255, alpha: 1.0)
@@ -26,7 +28,7 @@ class ViewController: UIViewController {
             cards.append(card)
         }
 
-        // 2. layout the first 4 cards for the user
+        // 2. layout the first 3 cards for the user
         layoutCards()
     }
 
@@ -43,8 +45,8 @@ class ViewController: UIViewController {
         firstCard.center = self.view.center
         firstCard.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleCardPan)))
 
-        // the next 3 cards in the deck
-        for i in 1...3 {
+        // the next 2 cards in the deck
+        for i in 1...(maxCardCount - 1) {
             if i > (cards.count - 1) { continue }
 
             let card = cards[i]
@@ -62,7 +64,7 @@ class ViewController: UIViewController {
             card.center.x = self.view.center.x
             card.frame.origin.y = cards[0].frame.origin.y - (CGFloat(i) * cardInteritemSpacing)
             // workaround: scale causes heights to skew so compensate for it with some tweaking
-            if i == 3 {
+            if i == maxCardCount {
                 card.frame.origin.y += 1.5
             }
 
@@ -78,7 +80,7 @@ class ViewController: UIViewController {
     func showNextCard() {
         let animationDuration: TimeInterval = 0.2
         // 1. animate each card to move forward one by one
-        for i in 1...3 {
+        for i in 1...(maxCardCount - 1) {
             if i > (cards.count - 1) { continue }
             let card = cards[i]
             let newDownscale = cardAttributes[i - 1].downscale
@@ -101,30 +103,30 @@ class ViewController: UIViewController {
         }
 
         // 2. add a new card (now the 4th card in the deck) to the very back
-        if 4 > (cards.count - 1) {
+        if 3 > (cards.count - 1) {
             if cards.count != 1 {
                 self.view.bringSubviewToFront(cards[1])
             }
             return
         }
-        let newCard = cards[4]
-        newCard.layer.zPosition = CGFloat(cards.count - 4)
-        let downscale = cardAttributes[3].downscale
-        let alpha = cardAttributes[3].alpha
+        let newCard = cards[3]
+        newCard.layer.zPosition = CGFloat(cards.count - 3)
+        let downscale = cardAttributes[2].downscale
+        let alpha = cardAttributes[2].alpha
 
         // initial state of new card
         newCard.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         newCard.alpha = 0
         newCard.center.x = self.view.center.x
-        newCard.frame.origin.y = cards[1].frame.origin.y - (4 * cardInteritemSpacing)
+        newCard.frame.origin.y = cards[1].frame.origin.y - (3 * cardInteritemSpacing)
         self.view.addSubview(newCard)
 
         // animate to end state of new card
-        UIView.animate(withDuration: animationDuration, delay: (3 * (animationDuration / 2)), usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [], animations: {
+        UIView.animate(withDuration: animationDuration, delay: (2 * (animationDuration / 2)), usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [], animations: {
             newCard.transform = CGAffineTransform(scaleX: downscale, y: downscale)
             newCard.alpha = alpha
             newCard.center.x = self.view.center.x
-            newCard.frame.origin.y = self.cards[1].frame.origin.y - (3 * self.cardInteritemSpacing) + 1.5
+            newCard.frame.origin.y = self.cards[1].frame.origin.y - (2 * self.cardInteritemSpacing) + 1.5
         }, completion: { (_) in
 
         })
