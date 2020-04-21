@@ -11,7 +11,6 @@
 		100D4DAE1E64CA0900486D7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100D4DAD1E64CA0900486D7C /* Assets.xcassets */; };
 		100D4DB41E64CA2800486D7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D4DAF1E64CA2800486D7C /* AppDelegate.swift */; };
 		100D4DB51E64CA2800486D7C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D4DB01E64CA2800486D7C /* CardView.swift */; };
-		100D4DB61E64CA2800486D7C /* EmojiOptionsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D4DB11E64CA2800486D7C /* EmojiOptionsOverlay.swift */; };
 		100D4DB71E64CA2800486D7C /* ImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D4DB21E64CA2800486D7C /* ImageCard.swift */; };
 		100D4DB81E64CA2800486D7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100D4DB31E64CA2800486D7C /* ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -23,7 +22,6 @@
 		100D4DAD1E64CA0900486D7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100D4DAF1E64CA2800486D7C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		100D4DB01E64CA2800486D7C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		100D4DB11E64CA2800486D7C /* EmojiOptionsOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiOptionsOverlay.swift; sourceTree = "<group>"; };
 		100D4DB21E64CA2800486D7C /* ImageCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCard.swift; sourceTree = "<group>"; };
 		100D4DB31E64CA2800486D7C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +60,6 @@
 				100D4DB31E64CA2800486D7C /* ViewController.swift */,
 				100D4DB21E64CA2800486D7C /* ImageCard.swift */,
 				100D4DB01E64CA2800486D7C /* CardView.swift */,
-				100D4DB11E64CA2800486D7C /* EmojiOptionsOverlay.swift */,
 				100D4DAD1E64CA0900486D7C /* Assets.xcassets */,
 				100D4DA41E64C99D00486D7C /* LaunchScreen.storyboard */,
 				100D4DA71E64C99D00486D7C /* Info.plist */,
@@ -112,6 +109,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -145,7 +143,6 @@
 				100D4DB81E64CA2800486D7C /* ViewController.swift in Sources */,
 				100D4DB51E64CA2800486D7C /* CardView.swift in Sources */,
 				100D4DB41E64CA2800486D7C /* AppDelegate.swift in Sources */,
-				100D4DB61E64CA2800486D7C /* EmojiOptionsOverlay.swift in Sources */,
 				100D4DB71E64CA2800486D7C /* ImageCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +266,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = saoudrizwan.CardSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -284,7 +281,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = saoudrizwan.CardSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
